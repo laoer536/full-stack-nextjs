@@ -2,8 +2,6 @@ import { NextAuthOptions } from 'next-auth'
 import EmailProvider from 'next-auth/providers/email'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { prisma } from '@/collection/mysql'
-console.log(prisma)
-
 export const authOptions: NextAuthOptions = {
   providers: [
     // GitHubProvider({
