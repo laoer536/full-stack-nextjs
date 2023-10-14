@@ -1,7 +1,7 @@
 /** Use prisma ORM  **/
 import { PrismaClient } from '@prisma/client'
-const connection = new PrismaClient()
-connection.$use(async (params, next) => {
+const prisma = new PrismaClient()
+prisma.$use(async (params, next) => {
   const now = new Date()
   console.log({
     time: `${now.toLocaleDateString()}-${now.toLocaleTimeString()}`,
@@ -10,4 +10,4 @@ connection.$use(async (params, next) => {
   return next(params)
 })
 
-export { connection }
+export { prisma }
