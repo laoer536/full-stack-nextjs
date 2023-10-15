@@ -24,17 +24,3 @@ export const authOptions: NextAuthOptions = {
   ],
   adapter: PrismaAdapter(prisma),
 }
-
-export async function getIsAuthenticated(request: NextRequest) {
-  if (request.cookies.has('next-auth.session-token')) {
-    const token = request.cookies.get('next-auth.session-token')?.value
-    if (token) {
-      const userData = await prisma.session.findUnique({ where: { sessionToken: token }, include: { user: true } })
-      return Boolean(userData)
-    } else {
-      return false
-    }
-  } else {
-    return false
-  }
-}
