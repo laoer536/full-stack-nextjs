@@ -1,14 +1,27 @@
 import styles from './page.module.scss'
+import type { Prisma } from '@prisma/client'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
-import { prisma } from '@/collection/mysql'
+// import { useSession } from 'next-auth/react'   use in client component
 
 async function getData() {
-  return prisma.user.findMany()
+  const res = await fetch('http://localhost:3000/api/user/users')
+  const users = await res.json()
+  return users as Prisma.UserCreateInput[]
 }
 
 export default async function Home() {
-  console.log(await getData())
+  const users = await getData()
   const session = await getServerSession(authOptions)
-  return <main className={styles.main}>{JSON.stringify(session, null, 2)}-----info</main>
+  return (
+    <main className={styles.main}>
+      {JSON.stringify(session, null, 2)}-----info
+      <div>用户列表</div>
+      <div>
+        {users.map((item) => (
+          <div key={item.email}>{item.email}</div>
+        ))}
+      </div>
+    </main>
+  )
 }
