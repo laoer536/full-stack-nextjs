@@ -2,7 +2,7 @@ import styles from './page.module.scss'
 import type { User } from '@prisma/client'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
-import { useFetch } from '@/utils'
+import { myFetch } from '@/utils'
 // import { useSession } from 'next-auth/react'   use in client component
 
 // async function getData() {
@@ -12,7 +12,7 @@ import { useFetch } from '@/utils'
 // }
 
 export default async function Home() {
-  const users = await useFetch<User[]>('/api/user/users') // useFetch add
+  const users = await myFetch<User[]>('/api/user/users') // useFetch add
   const session = await getServerSession(authOptions)
   return (
     <main className={styles.main}>
