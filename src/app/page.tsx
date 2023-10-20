@@ -12,7 +12,7 @@ import { useFetch } from '@/utils'
 // }
 
 export default async function Home() {
-  const users = await useFetch<User[]>('http://localhost:3000/api/user/users') // useFetch add
+  const users = await useFetch<User[]>('/api/user/users') // useFetch add
   const session = await getServerSession(authOptions)
   return (
     <main className={styles.main}>
