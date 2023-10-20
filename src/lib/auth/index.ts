@@ -1,7 +1,7 @@
 import { NextAuthOptions } from 'next-auth'
 import EmailProvider from 'next-auth/providers/email'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
-import { prisma } from '@/collection/mysql'
+import { prisma } from '@/lib/collection/mysql'
 import { getServerSession } from 'next-auth/next'
 import { NextRequest } from 'next/server'
 export const authOptions: NextAuthOptions = {

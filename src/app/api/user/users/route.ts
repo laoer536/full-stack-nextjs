@@ -1,4 +1,4 @@
-import { prisma } from '@/collection/mysql'
+import { prisma } from '@/lib/collection/mysql'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 
