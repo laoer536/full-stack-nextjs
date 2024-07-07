@@ -12,7 +12,8 @@
     "prisma:push": "prisma db push && prisma generate",
     "build:docker": "yarn build && docker build -t nextjs-docker .",
     "docker:run": "docker rm -f nextjs-docker && docker run --name nextjs-docker -d -p 8084:3000 nextjs-docker",
-    "release:local": "yarn build:docker && yarn docker:run"
+    "release:local": "yarn build:docker && yarn docker:run",
+    "data-server": "docker-compose up -d"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
