@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import Providers from '@/app/providers'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
-import NotLogin from '@/app/components/NotLogin'
+import NotLogin from '@/app/components/client/NotLogin'
 
 const inter = Inter({ subsets: ['latin'] })
 
