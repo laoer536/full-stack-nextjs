@@ -5,6 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+yarn install
 yarn run data-server
 yarn run prisma:push
 yarn run dev
