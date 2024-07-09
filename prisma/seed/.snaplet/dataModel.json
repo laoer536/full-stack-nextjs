@@ -1,0 +1,680 @@
+{
+  "models": {
+    "Post": {
+      "id": "nextjs.Post",
+      "schemaName": "nextjs",
+      "tableName": "Post",
+      "fields": [
+        {
+          "id": "nextjs.Post.authorId",
+          "name": "authorId",
+          "columnName": "authorId",
+          "type": "int",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "nextjs.Post.content",
+          "name": "content",
+          "columnName": "content",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.Post.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "nextjs.Post.id",
+            "increment": 1,
+            "start": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "nextjs.Post.published",
+          "name": "published",
+          "columnName": "published",
+          "type": "tinyint",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": true,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "nextjs.Post.title",
+          "name": "title",
+          "columnName": "title",
+          "type": "varchar",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "name": "users",
+          "type": "users",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "PostTousers",
+          "relationFromFields": [
+            "authorId"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "nextjs.Post.id",
+          "fields": [
+            "id"
+          ]
+        }
+      ]
+    },
+    "accounts": {
+      "id": "nextjs.accounts",
+      "schemaName": "nextjs",
+      "tableName": "accounts",
+      "fields": [
+        {
+          "id": "nextjs.accounts.access_token",
+          "name": "access_token",
+          "columnName": "access_token",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.accounts.expires_at",
+          "name": "expires_at",
+          "columnName": "expires_at",
+          "type": "int",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "nextjs.accounts.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "nextjs.accounts.id",
+            "increment": 1,
+            "start": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "nextjs.accounts.id_token",
+          "name": "id_token",
+          "columnName": "id_token",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.accounts.oauth_token",
+          "name": "oauth_token",
+          "columnName": "oauth_token",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.accounts.oauth_token_secret",
+          "name": "oauth_token_secret",
+          "columnName": "oauth_token_secret",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.accounts.provider",
+          "name": "provider",
+          "columnName": "provider",
+          "type": "varchar",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.accounts.provider_account_id",
+          "name": "provider_account_id",
+          "columnName": "provider_account_id",
+          "type": "varchar",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.accounts.refresh_token",
+          "name": "refresh_token",
+          "columnName": "refresh_token",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.accounts.scope",
+          "name": "scope",
+          "columnName": "scope",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.accounts.session_state",
+          "name": "session_state",
+          "columnName": "session_state",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.accounts.token_type",
+          "name": "token_type",
+          "columnName": "token_type",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.accounts.type",
+          "name": "type",
+          "columnName": "type",
+          "type": "varchar",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.accounts.user_id",
+          "name": "user_id",
+          "columnName": "user_id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "name": "users",
+          "type": "users",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "accountsTousers",
+          "relationFromFields": [
+            "user_id"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "nextjs.accounts.provider_provider_account_id",
+          "fields": [
+            "provider",
+            "provider_account_id"
+          ]
+        },
+        {
+          "name": "nextjs.accounts.id",
+          "fields": [
+            "id"
+          ]
+        }
+      ]
+    },
+    "sessions": {
+      "id": "nextjs.sessions",
+      "schemaName": "nextjs",
+      "tableName": "sessions",
+      "fields": [
+        {
+          "id": "nextjs.sessions.expires",
+          "name": "expires",
+          "columnName": "expires",
+          "type": "datetime",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "nextjs.sessions.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "nextjs.sessions.id",
+            "increment": 1,
+            "start": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "nextjs.sessions.session_token",
+          "name": "session_token",
+          "columnName": "session_token",
+          "type": "varchar",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.sessions.user_id",
+          "name": "user_id",
+          "columnName": "user_id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "name": "users",
+          "type": "users",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "sessionsTousers",
+          "relationFromFields": [
+            "user_id"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "nextjs.sessions.id",
+          "fields": [
+            "id"
+          ]
+        },
+        {
+          "name": "nextjs.sessions.session_token",
+          "fields": [
+            "session_token"
+          ]
+        }
+      ]
+    },
+    "users": {
+      "id": "nextjs.users",
+      "schemaName": "nextjs",
+      "tableName": "users",
+      "fields": [
+        {
+          "id": "nextjs.users.created_at",
+          "name": "created_at",
+          "columnName": "created_at",
+          "type": "datetime",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": true,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "nextjs.users.email",
+          "name": "email",
+          "columnName": "email",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.users.email_verified",
+          "name": "email_verified",
+          "columnName": "email_verified",
+          "type": "datetime",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "nextjs.users.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "nextjs.users.id",
+            "increment": 1,
+            "start": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "nextjs.users.image",
+          "name": "image",
+          "columnName": "image",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.users.name",
+          "name": "name",
+          "columnName": "name",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.users.updated_at",
+          "name": "updated_at",
+          "columnName": "updated_at",
+          "type": "datetime",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "name": "Post",
+          "type": "Post",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "PostTousers",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "accounts",
+          "type": "accounts",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "accountsTousers",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "sessions",
+          "type": "sessions",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "sessionsTousers",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "nextjs.users.id",
+          "fields": [
+            "id"
+          ]
+        },
+        {
+          "name": "nextjs.users.email",
+          "fields": [
+            "email"
+          ]
+        }
+      ]
+    },
+    "verificationtokens": {
+      "id": "nextjs.verificationtokens",
+      "schemaName": "nextjs",
+      "tableName": "verificationtokens",
+      "fields": [
+        {
+          "id": "nextjs.verificationtokens.expires",
+          "name": "expires",
+          "columnName": "expires",
+          "type": "datetime",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "nextjs.verificationtokens.identifier",
+          "name": "identifier",
+          "columnName": "identifier",
+          "type": "varchar",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 191
+        },
+        {
+          "id": "nextjs.verificationtokens.token",
+          "name": "token",
+          "columnName": "token",
+          "type": "varchar",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": 191
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "nextjs.verificationtokens.identifier_token",
+          "fields": [
+            "identifier",
+            "token"
+          ]
+        },
+        {
+          "name": "nextjs.verificationtokens.token",
+          "fields": [
+            "token"
+          ]
+        }
+      ]
+    }
+  },
+  "enums": {}
+}
