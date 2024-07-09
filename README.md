@@ -5,9 +5,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+# step1
 yarn install
+# step2
 yarn run data-server
+# step3
 yarn run prisma:push
+# step4
+yarn run prisma:seed
+# step5
 yarn run dev
 ```
 
