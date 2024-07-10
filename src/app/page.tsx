@@ -1,10 +1,18 @@
+// 'use client'
+
+// import type { User } from '@prisma/client'
+// import { myFetch } from '@/utils'
 import styles from './page.module.scss'
-import type { User } from '@prisma/client'
-import { myFetch } from '@/utils'
 import AuthRequire from '@/app/components/server/AuthRequire'
+import { prisma } from '@/lib/collection/mysql'
 
 export default async function Home() {
-  const users = await myFetch<User[]>('/api/user/users') // useFetch add
+  const users = await prisma.user.findMany()
+  // if is client
+  // const [users, setUsers] = useState<User[]>([])
+  // useEffect(() => {
+  //   myFetch<User[]>('/api/user/users', {}).then((res) => setUsers(res))
+  // }, [])
   return (
     <AuthRequire>
       <main className={styles.main}>
