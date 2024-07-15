@@ -17,6 +17,7 @@ const main = async () => {
     createMany(10, (index) => ({
       email: copycat.email(index.index),
       name: copycat.words(index.index, { min: 1, max: 3 }),
+      image: copycat.url(index.index, {}),
       posts: (createMany) => createMany(10),
     })),
   )

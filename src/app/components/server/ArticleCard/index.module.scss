@@ -1,0 +1,49 @@
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  margin-top: 30px;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  }
+}
+
+.cardHeader {
+  padding: 16px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.cardBody {
+  padding: 16px;
+}
+
+.cardFooter {
+  padding: 16px;
+  background: #f5f5f5;
+  border-top: 1px solid #ddd;
+  text-align: right;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.username {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+
+.content {
+  font-size: 1em;
+  color: #333;
+}
