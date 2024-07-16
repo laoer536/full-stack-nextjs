@@ -6,15 +6,17 @@ First, run the development server:
 
 ```bash
 # step1
-yarn install
+pnpm install
 # step2
-yarn run data-server
+pnpm run data-server
 # step3
-yarn run prisma:push
+pnpm run prisma:push
 # step4
-yarn run prisma:seed
+pnpm run seed:init
 # step5
-yarn run dev
+pnpm run prisma:seed
+# step6
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

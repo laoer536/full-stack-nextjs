@@ -13,10 +13,11 @@
     "prisma:new": "prisma migrate dev && prisma generate",
     "prisma:pull": "prisma db pull && prisma generate",
     "prisma:push": "prisma db push && prisma generate",
-    "prisma:seed": "yarn dlx @snaplet/seed sync && prisma db seed",
-    "build:docker": "yarn build && docker build -t nextjs-docker .",
+    "prisma:seed": "pnpm dlx @snaplet/seed sync && prisma db seed",
+    "seed:init": "pnpm dlx @snaplet/seed init prisma/seed",
+    "build:docker": "pnpm build && docker build -t nextjs-docker .",
     "docker:run": "docker rm -f nextjs-docker && docker run --name nextjs-docker -d -p 8084:3000 nextjs-docker",
-    "release:local": "yarn build:docker && yarn docker:run",
+    "release:local": "pnpm build:docker && pnpm docker:run",
     "data-server": "docker-compose up -d"
   },
   "dependencies": {
