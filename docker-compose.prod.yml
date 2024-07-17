@@ -11,7 +11,7 @@ services:
       - "5000:3000"
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=mysql://root:my-secret-pw@localhost:3306/nextjs
+      - DATABASE_URL=mysql://root:my-secret-pw@mysql:3306/nextjs
       - REDIS_URL=redis://redis:6379
     depends_on:
       - mysql
@@ -22,13 +22,13 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: my-secret-pw
     volumes:
-      - mysql-data:/var/lib/mysql
+      - mysql-data-full-stack-nextjs-prod:/var/lib/mysql
     restart: always
 
   redis:
     image: redis:latest
     volumes:
-      - redis-data:/data
+      - redis-data-full-stack-nextjs-prod:/data
     restart: always
 
 #  jaeger:
@@ -41,5 +41,5 @@ services:
 #    restart: always
 
 volumes:
-  mysql-data:
-  redis-data:
+  mysql-data-full-stack-nextjs-prod:
+  redis-data-full-stack-nextjs-prod:

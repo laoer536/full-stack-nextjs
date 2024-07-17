@@ -17,8 +17,8 @@
     "seed:init": "pnpm dlx @snaplet/seed init prisma/seed",
     "build:docker": "pnpm build && docker build -t nextjs-docker .",
     "docker:run": "docker rm -f nextjs-docker && docker run --name nextjs-docker -d -p 8084:3000 nextjs-docker",
-    "release:local": "pnpm build && docker-compose -f docker-compose.prod.yml up --build -d",
-    "data-server": "docker-compose up -d"
+    "release:local": "pnpm build && docker-compose -p full-stack-nextjs-prod -f docker-compose.prod.yml up --build -d",
+    "data-server": "docker-compose -p full-stack-nextjs-dev -f docker-compose.dev.yml up -d"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
