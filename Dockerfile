@@ -1,4 +1,12 @@
-FROM node:18-alpine
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY . .
+RUN npm install pnpm -g
+RUN npm install -g dotenv-cli
+#RUN dotenv -e .env.prod.local -- pnpm dlx prisma db push && dotenv -e .env.prod.local -- pnpm dlx prisma generate
+RUN pnpm run build
+
+FROM builder as runner
 WORKDIR /app
 
 RUN addgroup --system --gid 1001 nodejs
@@ -6,10 +14,8 @@ RUN adduser --system --uid 1001 nextjs
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
-COPY public ./public
-COPY .env ./
-COPY --chown=nextjs:nodejs .next/standalone ./
-COPY --chown=nextjs:nodejs .next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 RUN ls -la /app
 RUN ls -la /app/.next

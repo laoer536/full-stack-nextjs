@@ -8,7 +8,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql-data-full-stack-nextjs-dev:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
     restart: always
 
   redis:
@@ -16,7 +16,7 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - redis-data-full-stack-nextjs-dev:/data
+      - redis-data:/data
     restart: always
 
 #  jaeger:
@@ -29,5 +29,5 @@ services:
 #    restart: always
 
 volumes:
-  mysql-data-full-stack-nextjs-dev:
-  redis-data-full-stack-nextjs-dev:
+  mysql-data:
+  redis-data:
