@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "dotenv -e .env.prod.local -- next build",
+    "build": "prisma generate && dotenv -e .env.prod.local -- next build",
     "start": "next start",
     "lint": "next lint",
     "prisma:new": "prisma migrate dev && prisma generate",
@@ -16,7 +16,7 @@
     "prisma:push-prod": "dotenv -e .env.prod.local -- prisma db push && dotenv -e .env.prod.local -- prisma generate",
     "prisma:seed": "pnpm dlx @snaplet/seed sync && prisma db seed",
     "seed:init": "pnpm dlx @snaplet/seed init prisma/seed",
-    "build:docker": "pnpm build && docker build -t nextjs-docker .",
+    "build:docker": "docker build -t nextjs-docker .",
     "docker:run": "docker rm -f nextjs-docker && docker run --name nextjs-docker -d -p 8084:3000 nextjs-docker",
     "release:local": "docker-compose -p full-stack-nextjs-prod -f docker-compose.prod.yml up --build -d",
     "data-server": "docker-compose -p full-stack-nextjs-data -f docker-compose.data.yml up -d"

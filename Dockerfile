@@ -3,15 +3,14 @@ WORKDIR /app
 COPY . .
 RUN npm install pnpm -g
 RUN npm install -g dotenv-cli
-#RUN dotenv -e .env.prod.local -- pnpm dlx prisma db push && dotenv -e .env.prod.local -- pnpm dlx prisma generate
-RUN pnpm run build
+RUN pnpm build
 
 FROM builder as runner
 WORKDIR /app
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-RUN mkdir .next
+RUN #mkdir .next
 RUN chown nextjs:nodejs .next
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
