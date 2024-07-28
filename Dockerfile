@@ -5,7 +5,7 @@ RUN npm config set registry https://registry.npmmirror.com
 RUN npm install pnpm -g
 RUN npm install -g dotenv-cli
 RUN pnpm install
-RUN pnpm prisma generate && pnpm seed:init && pnpm prisma:seed
+RUN pnpm prisma generate
 RUN pnpm build
 
 FROM builder as runner
