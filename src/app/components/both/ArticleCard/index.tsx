@@ -11,7 +11,10 @@ const ArticleCard = ({ username, title, content, updatedAt }: ArticleCardProps) 
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
-        <div className={styles.username}>{username}</div>
+        <div className={styles.username}>
+          <span>Author: </span>
+          {username}
+        </div>
       </div>
       <div className={styles.cardBody}>
         <div className={styles.title}>{title}</div>
