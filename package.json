@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "dotenv -e .env.prod.local -- next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "prisma:new": "prisma migrate dev && prisma generate",

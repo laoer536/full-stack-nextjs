@@ -3,9 +3,9 @@ WORKDIR /app
 COPY . .
 RUN npm config set registry https://registry.npmmirror.com
 RUN npm install pnpm -g
-RUN npm install -g dotenv-cli
+RUN #npm install -g dotenv-cli
 RUN pnpm install
-RUN pnpm prisma:push
+RUN pnpm dlx prisma generate
 RUN pnpm build
 
 FROM builder as runner
