@@ -44,7 +44,6 @@ export default function AddUserForm() {
       },
       true,
     )
-    console.log(response)
     if (response.ok) {
       setName('')
       setEmail('')
@@ -52,6 +51,7 @@ export default function AddUserForm() {
       // 重新获取用户列表
       // await fetchUsers()
       location.reload()
+      alert('Add user successfully!')
     } else {
       console.error('Failed to add user')
     }
