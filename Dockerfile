@@ -3,7 +3,7 @@ WORKDIR /app
 COPY . .
 RUN npm config set registry https://registry.npmmirror.com
 RUN npm install pnpm -g
-RUN #npm install -g dotenv-cli
+#RUN npm install -g dotenv-cli
 RUN pnpm install
 RUN pnpm dlx prisma generate
 RUN pnpm build
@@ -13,7 +13,7 @@ WORKDIR /app
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-RUN #mkdir .next
+#RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
