@@ -1,6 +1,8 @@
 import Image from 'next/image'
+import { prisma } from '@/lib/db'
 
-export default function Home() {
+export default async function Home() {
+  const users = await prisma.user.findMany()
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -35,6 +37,7 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+        <div>{JSON.stringify(users)}</div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
